@@ -18,7 +18,7 @@ resource "aws_route_table" "private" {
   vpc_id = "${aws_vpc.default.id}"
   route {
     cidr_block = "0.0.0.0/0"
-    instance_id = "${element(aws_instance.nat.*.id, count.index)}"
+    /*instance_id = "${element(aws_instance.nat.*.id, count.index)}"*/
     nat_gateway_id = "${element(aws_nat_gateway.nat_gateway.*.id, count.index)}"
   }
   tags {
